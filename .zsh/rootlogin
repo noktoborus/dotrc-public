@@ -1,0 +1,10 @@
+#!/bin/sh
+export LOGIN_HOME=$HOME
+if [ ! -z "$1" ];
+then
+	export HOME="$1"
+else
+	export HOME="/home/noktoborus"
+fi
+exec /usr/bin/env zsh
+

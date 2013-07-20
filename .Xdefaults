@@ -1,0 +1,64 @@
+urxvt*font: xft:Monospace:pixelsize=12
+urxvt*termName: rxvt
+
+!urxvt*depth: 32
+urxvt*transparent: true
+urxvt*shading: 20
+urxvt*fading: 30
+urxvt*background: rgba:0000/0000/0000/eeee
+
+urxvt*foreground: #aaaaaa
+urxvt*tintColor: #dfdfdf
+urxvt*inheritPixmap: True
+urxvt*reverseVideo:	false
+urxvt*geometry: 90x25
+!urxvt*geometry: 125x37
+urxvt*scrollBar: False
+urxvt*secondaryScroll: true
+!urxvt*borderLess: true
+! Tango color scheme
+
+!urxvt*color0: #000000
+urxvt*color1: #a40000
+urxvt*color2: #4e9a06
+urxvt*color3: #c4a000
+urxvt*color4: #204a87
+urxvt*color6: #038e82
+urxvt*color7: #babdb6
+urxvt*color8: #555753
+urxvt*color9: #cc0000
+urxvt*color10: #73d216
+urxvt*color11: #edd400
+urxvt*color12: #3465a4
+urxvt*color14: #05d2c1
+urxvt*color15: #d3d7cf
+
+xterm*foreground: #aaaaaa
+xterm*background: #000000
+!xterm*color0: #000000
+xterm*color1: #a40000
+xterm*color2: #4e9a06
+xterm*color3: #c4a000
+xterm*color4: #204a87
+xterm*color6: #038e82
+xterm*color7: #babdb6
+xterm*color8: #555753
+xterm*color9: #cc0000
+xterm*color10: #73d216
+xterm*color11: #edd400
+xterm*color12: #3465a4
+xterm*color14: #05d2c1
+xterm*color15: #d3d7cf
+
+
+XLock.mode: space
+XLock.erasemode: no_fade
+!XLock.fpsfont: -*-helvetica-medium-r-*-*-24-*-*-*-*-*-*
+XLock.font: fixed
+!XLock.planfont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*
+!XLock.messagefont: -*-times-*-*-*-*-18-*-*-*-*-*-*-*
+!
+!
+Xcursor.theme: Ecliz
+Xcursor.size: 32
+! 16 48 64

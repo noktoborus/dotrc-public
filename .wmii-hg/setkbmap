@@ -1,0 +1,5 @@
+#!/bin/sh
+
+setxkbmap -option terminate:ctrl_alt_bksp
+setxkbmap -layout 'us,ru' -option 'grp:caps_toggle'
+

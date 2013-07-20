@@ -1,0 +1,38 @@
+#!/bin/sh
+_mpc ()
+{
+	mpc --format '[[%artist% ](%album%) ]"%title%"'
+}
+S_PAUSED="p"
+S_PLAYING="▶"
+S_STOPPED="■"
+
+TITLE="`_mpc 2>/dev/null | head -n 1`"
+TIME=""
+END=""
+STATUS=""
+
+[ $? -ne 0 ] && exit 1
+if [ 1 -eq `mpc 2>&1 | wc -l` ];
+then
+	if [ ! -z "$S_STOPPED" ];
+	then
+		STATUS="[${S_STOPPED}]"
+	else
+		STATUS="[stopped]"
+	fi
+	if [ -z "$TITLE" ];
+	then
+		TITLE="Connection refused"
+	else
+		TITLE="Song not loaded"
+	fi
+else
+	STATUS="`_mpc 2>/dev/null | head -n 2 | tail -n 1 | cut -d'[' -f 2 | cut -d']' -f 1`"
+	VOLUME="`_mpc | tail -n 1 | cut -d':' -f 2 | awk '{print $1}'`"
+	TIME="`_mpc 2>/dev/null | tail -n 2 | head -n 1 | awk '{print $3}'`"
+	[ ! -z "$S_PAUSED" ] && STATUS=$(echo "$STATUS" | sed "s/paused/${S_PAUSED}/")
+	[ ! -z "$S_PLAYING" ] && STATUS=$(echo "$STATUS" | sed "s/playing/${S_PLAYING}/")
+	STATUS="[$STATUS $TIME $VOLUME]"
+fi
+echo -n "$STATUS $TITLE"
