@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/noktoborus/%USER_HOME/.i2p'
-let g:netrw_dirhist_2='/home/noktoborus/.ssh'
-let g:netrw_dirhist_3='/home/noktoborus/x'
-let g:netrw_dirhist_4='/home/noktoborus/private/trq/ww/sc300/gitolite-admin'
-let g:netrw_dirhist_5='/home/noktoborus/private/trq/ww/sc300/gitolite-admin/conf'
-let g:netrw_dirhist_6='/home/noktoborus/private/trq/ww/sc300'

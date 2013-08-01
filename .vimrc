@@ -172,6 +172,7 @@ if has("eval") && has("autocmd")
 		call setpos (".", curpos)
 	endfun
 	
+	autocmd BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf setf lighttpd 
 	autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setf nginx | endif 
 	autocmd BufWritePre *.c,Makefile,*.sh,*.h,*.hpp,*.html,*.xhtml,*.textile call ChopLinesInBuf ()
 	autocmd BufNewFile *.sh call MakeNewCodeSHell ()
