@@ -19,8 +19,16 @@ export HISTFILE=~/.history
 export CVS_RSH=ssh
 export JEKYLL_POSTS="$HOME/_private/mnt/sirin/noktoborus/noktoborus.github.com/_posts"
 
-[ -d "/usr/lib/colorgcc/bin" ] && export PATH="/usr/lib/colorgcc/bin:$PATH"
-[ -d "/usr/lib/ccache/bin" ] && export PATH="/usr/lib/ccache/bin:$PATH"
+if [ -d "/usr/lib/colorgcc/bin" ];
+then
+#	export PATH="/usr/lib/colorgcc/bin:$PATH"
+	export CC="/usr/lib/colorgcc/bin/cc"
+	export GCC="/usr/lib/colorgcc/bin/gcc"
+	export GXX="/usr/lib/colorgcc/bin/g++"
+	export CXX="/usr/lib/colorgcc/bin/c++"
+fi
+
+#[ -d "/usr/lib/ccache/bin" ] && export PATH="/usr/lib/ccache/bin:$PATH"
 
 [ -x "${HOME}/.zsh/env.local" ] && source "${HOME}/.zsh/env.local"
 
