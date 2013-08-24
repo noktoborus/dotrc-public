@@ -27,6 +27,7 @@ alias tmux="_z_tmux"
 alias ra_bluemars="mplayer2 -cache-min 5 -cache 8192 http://207.200.96.225:8020/"
 alias ra_paradise="mplayer2 -cache-min 5 -cache 8192 http://stream-uk1.radioparadise.com:9000/rp_96m.ogg"
 alias ra_paradise32="mplayer2 -cache-min 5 -cache 8192 http://stream-tx4.radioparadise.com:9000/rp_32.ogg"
+alias ra_doomed="mplayer2 -cache-min 5 -cache 8192  http://sfstream1.somafm.com:8300 http://ice.somafm.com/doomed"
 
 _z_tmux ()
 {
