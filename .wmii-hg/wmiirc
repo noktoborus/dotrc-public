@@ -221,7 +221,7 @@ Key $MODKEY-m # Set column to max mode
 KeyGroup Running programs
 Key $MODKEY-a      # Open wmii actions menu
 	action $(wi_actions | wimenu -h "${hist}.actions" -n $histnum) &
-Key $MODKEY-p      # Open program menu
+Key $MODKEY-c      # Open program menu
 	eval wmiir setsid "$(wimenu -h "${hist}.progs" -n $histnum <$progsfile)" &
 
 Key $MODKEY-Return # Launch a terminal
