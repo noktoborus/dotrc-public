@@ -1,0 +1,14 @@
+# Write your default config options here!
+stop-xscreensaver = 1
+heartbeat-cmd = "xscreensaver-command -deactivate >/dev/null"
+ao = alsa
+#vo = gl_nosw
+vo = xv
+#nocorrect-pts = yes
+framedrop = yes
+hardframedrop = yes
+cache = 131072
+softvol = yes
+volume = 90
+
+
