@@ -249,6 +249,9 @@ set confirm
 set shortmess =fimnrxoOtTI
 set pastetoggle =<F12>
 
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set fileencodings=utf-8,cp1251,koi8-r,iso-8859-15
 if version >= 703
