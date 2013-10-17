@@ -4,7 +4,12 @@ compinit
 zmodload zsh/complist
 autoload -U promptinit
 promptinit
-prompt adam2
+if [ x"`whoami`" = x"root" ];
+then
+	prompt adam1
+else
+	prompt adam2
+fi
 
 [ -r "${HOME}/.zsh/env" ] && source "${HOME}/.zsh/env"
 [ -r "${HOME}/.zsh/zsh_local" ] && source "${HOME}/.zsh/zsh_local"
@@ -23,6 +28,7 @@ alias g="grep -RHn --color=auto"
 alias vimpager="vimpager -n"
 alias less="less -R"
 alias tmux="_z_tmux"
+alias su='su -p'
 
 alias ra_bluemars="mplayer2 -cache-min 5 -cache 8192 http://207.200.96.225:8020/"
 alias ra_paradise="mplayer2 -cache-min 5 -cache 8192 http://stream-uk1.radioparadise.com:9000/rp_96m.ogg"
@@ -52,24 +58,6 @@ _z_tmux ()
 		exec \tmux $* attach
 	)
 }
-
-if [ -e "$HOME/.zsh/rootlogin" ];
-then
-	if ( [ -r "/etc/lsb-release" ] && [ ! -z "$(grep DISTRIB_ID=Ubuntu /etc/lsb-release)" ] );
-	then
-		sudo ()
-		{
-			if ( [ ! -z "$1" ] && [ "$1" = "su" ] );
-			then
-				/usr/bin/sudo su root -c "${HOME}/.zsh/rootlogin $HOME"
-			else
-				/usr/bin/sudo $*
-			fi
-		}
-	else
-		alias su="su root -c $HOME/.zsh/rootlogin $HOME"
-	fi
-fi
 
 convert ()
 {
