@@ -1,2 +1,4 @@
 remove control = Control_R
-add Mod3 = Control_R
+remove Mod1 = Alt_R
+remove Mod4 = Super_L
+add Mod3 = Alt_R Super_L
