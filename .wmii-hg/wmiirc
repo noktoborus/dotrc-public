@@ -231,7 +231,7 @@ Key $MODKEY-g
 Key $MODKEY-w
 	eval $HOME/.wmii-hg/setkbmap
 Key $MODKEY-o
-	xscreensaver-command -l
+	gnome-screensaver-command -l
 
 KeyGroup Other
 Key $MODKEY-Control-t # Toggle all other key bindings
