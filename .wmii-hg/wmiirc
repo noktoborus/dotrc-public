@@ -3,7 +3,7 @@
 # Configure wmii
 wmiiscript=wmiirc # For wmii.sh
 . wmii.sh
-
+xset s 90
 
 # Configuration Variables
 MODKEY=Mod3
@@ -231,7 +231,7 @@ Key $MODKEY-g
 Key $MODKEY-w
 	eval $HOME/.wmii-hg/setkbmap
 Key $MODKEY-o
-	gnome-screensaver-command -l
+	light-locker-command -l
 
 KeyGroup Other
 Key $MODKEY-Control-t # Toggle all other key bindings
