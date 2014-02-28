@@ -59,7 +59,7 @@ if has("eval") && has("autocmd")
 		put ='#include <unistd.h>'
 		put =''
 		put ='int'
-		put ='main (int argc, char *argv[])'
+		put ='main(int argc, char *argv[])'
 		put ='{'
 		put =''
 		put ='	return EXIT_SUCCESS;'
