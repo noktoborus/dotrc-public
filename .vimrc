@@ -190,6 +190,7 @@ if has("eval") && has("autocmd")
 	autocmd BufRead,BufNewFile *.ael setf ael
 	autocmd BufReadPost,FileReadPost *.[jJ][pP][eE][gG],*.[jJ][pP][gG],*.[pP][nN][gG],*.[bB][mM][pP] silent call ReadExif ()
 	autocmd BufReadPost,FileReadPost * silent call ReadBinaryWithObjdump ()
+	autocmd BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc setf ini
 
 	fun! <SID>check_pager_mode()
 		if exists("g:loaded_less") && g:loaded_less
