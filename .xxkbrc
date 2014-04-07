@@ -35,6 +35,8 @@ XXkb.bell.percent: -50
 
 XXkb.ignore.reverse: no
 
+
+XXkb.app_list.wm_class_class.ignore: *witray*
 ! XXkb.app_list.<match>.<action>: <list>
 ! <match> is one of "wm_class_class", "wm_class_name", "wm_name", "property"
 ! <action> is one of "ignore", "start_alt", "alt_groupM" (M - 1..4) 
