@@ -142,17 +142,21 @@ if has("eval") && has("autocmd")
 		put =''
 	endfunction
 
-	function! ReadBinaryWithObjdump()
+	function! ReadBinaryWithAny()
 		" URL: http://vir.homelinux.org/blog/archives/141-quick-hack-to-unite-vim-and-objdump.html
 		"
-		if 0 != match(getline(1), "\\(^.ELF\\|!<arch>\\)")
+		if 0 == match(getline(1), "\\(^.ELF\\|!<arch>\\)")
+			execute "%!objdump -DwC %"
+			setlocal ft=objdasm
+		elseif 0 == match(getline(1), "SQLite format 3")
+			execute "%!sqlite3 % .dump"
+			setlocal ft=sql
+		else
 			return
 		endif
-		execute "%!objdump -DwC %"
 		setlocal ro
 		setlocal nomodifiable
 		"setlocal nowrite
-		setlocal ft=objdasm
 	endfunction
 
 	function! ReadExif()
@@ -189,7 +193,7 @@ if has("eval") && has("autocmd")
 	autocmd BufRead,BufNewFile *.dis setf objdasm
 	autocmd BufRead,BufNewFile *.ael setf ael
 	autocmd BufReadPost,FileReadPost *.[jJ][pP][eE][gG],*.[jJ][pP][gG],*.[pP][nN][gG],*.[bB][mM][pP] silent call ReadExif ()
-	autocmd BufReadPost,FileReadPost * silent call ReadBinaryWithObjdump ()
+	autocmd BufReadPost,FileReadPost * silent call ReadBinaryWithAny()
 	autocmd BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc setf ini
 
 	fun! <SID>check_pager_mode()
