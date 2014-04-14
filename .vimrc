@@ -156,6 +156,7 @@ if has("eval") && has("autocmd")
 		endif
 		setlocal ro
 		setlocal nomodifiable
+		setlocal noswapfile
 		"setlocal nowrite
 	endfunction
 
