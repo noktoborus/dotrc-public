@@ -53,9 +53,10 @@ _z_tmux ()
 				esac
 				;;
 		esac
-		\tmux $* has-session -t z >/dev/null 2>&1
-		[ $? -eq 0 ] && exec \tmux $*
-		exec \tmux $* attach
+		# check over sessions
+		[ `tmux list-sessions 2>/dev/null | wc -l` -gt 0 ]\
+			&& exec \tmux $* attach
+		exec \tmux $*
 	)
 }
 
