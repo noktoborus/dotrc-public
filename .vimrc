@@ -48,22 +48,28 @@ if has("eval") && has("autocmd")
 
 	function! MakeNewCodeC()
 		let fname = bufname ('%')
+		let fnameh = substitute(bufname('%'), "\.c$", ".h", "")
 		0 put ='/* vim: ft=c ff=unix fenc=utf-8'
 		put =' * file: ' . fname
 		put =' */'
-		put ='#include <stdio.h>'
-		put ='#include <stdlib.h>'
-		put ='#include <stdint.h>'
-		put ='#include <stdbool.h>'
-		put ='#include <string.h>'
-		put ='#include <unistd.h>'
-		put =''
-		put ='int'
-		put ='main(int argc, char *argv[])'
-		put ='{'
-		put =''
-		put ='	return EXIT_SUCCESS;'
-		put ='}'
+
+		if (filereadable(fnameh))
+			put ='#include \"' . fnameh . '\"'
+		else
+			put ='#include <stdio.h>'
+			put ='#include <stdlib.h>'
+			put ='#include <stdint.h>'
+			put ='#include <stdbool.h>'
+			put ='#include <string.h>'
+			put ='#include <unistd.h>'
+			put =''
+			put ='int'
+			put ='main(int argc, char *argv[])'
+			put ='{'
+			put =''
+			put ='	return EXIT_SUCCESS;'
+			put ='}'
+		end
 	endfun
 
 	function! MakeNewCodeCH(type, ext)
