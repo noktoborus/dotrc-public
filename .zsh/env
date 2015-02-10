@@ -7,7 +7,7 @@ then
    export PAGER="most"
 fi
 
-export PATH="/sbin:/usr/sbin:$HOME/.local/bin:$HOME/.local/usr/bin/:$HOME/.local/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games:$PATH"
+export PATH="$HOME/node_modules/.bin:/sbin:/usr/sbin:$HOME/.local/bin:$HOME/.local/usr/bin/:$HOME/.local/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games:$PATH"
 export MPD_HOST="127.0.0.1"
 export MPD_PORT="6600"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;31'
