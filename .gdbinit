@@ -449,15 +449,15 @@ Syntax: stack <COUNT>
 end
 
 
-define frame
-    info frame
-    info args
-    info locals
-end
-document frame
-Syntax: frame
-| Print stack frame.
-end
+#define frame
+#    info frame
+#    info args
+#    info locals
+#end
+#document frame
+#Syntax: frame
+#| Print stack frame.
+#end
 
 
 define flagsarm
@@ -4103,42 +4103,42 @@ end
 # up
 #------------------------------------------------------------------------------#
 
-define hook-up
-    setup-color-pipe
-end
+#define hook-up
+#    setup-color-pipe
+#end
 
-define hookpost-up
-    do-generic-colors
-    cleanup-color-pipe
-end
+#define hookpost-up
+#    do-generic-colors
+#    cleanup-color-pipe
+#end
 
 
 #------------------------------------------------------------------------------#
 # down
 #------------------------------------------------------------------------------#
 
-define hook-down
-    setup-color-pipe
-end
+#define hook-down
+#    setup-color-pipe
+#end
 
-define hookpost-down
-    do-generic-colors
-    cleanup-color-pipe
-end
+#define hookpost-down
+#    do-generic-colors
+#    cleanup-color-pipe
+#end
 
 
 #------------------------------------------------------------------------------#
 # frame
 #------------------------------------------------------------------------------#
 
-define hook-frame
-    setup-color-pipe
-end
+#define hook-frame
+#   setup-color-pipe
+#end
 
-define hookpost-frame
-    do-generic-colors
-    cleanup-color-pipe
-end
+#define hookpost-frame
+#    do-generic-colors
+#   cleanup-color-pipe
+#end
 
 
 #------------------------------------------------------------------------------#
