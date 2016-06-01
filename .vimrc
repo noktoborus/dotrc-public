@@ -153,7 +153,7 @@ if has("eval") && has("autocmd")
 		put ='cmake_minimum_required(VERSION 3.0.2)'
 		put =''
 		set expandtab "et
-		set tabstop "ts
+		set tabstop=4 "ts
 	endfunction
 
 	function! ReadBinaryWithAny()
