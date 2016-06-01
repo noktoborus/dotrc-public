@@ -150,6 +150,7 @@ if has("eval") && has("autocmd")
 
 	function! MakeNewCmake()
 		0 put ='# vim: ft=cmake:et:ts=4:ff=unix:fenc=utf-8:'
+		put ='cmake_minimum_required(VERSION 3.0.2)'
 		put =''
 		set expandtab "et
 		set tabstop "ts
