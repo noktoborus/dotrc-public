@@ -148,6 +148,13 @@ if has("eval") && has("autocmd")
 		put =''
 	endfunction
 
+	function! MakeNewCmake()
+		0 put ='# vim: ft=cmake:et:ts=4:ff=unix:fenc=utf-8:'
+		put =''
+		set expandtab "et
+		set tabstop "ts
+	endfunction
+
 	function! ReadBinaryWithAny()
 		" URL: http://vir.homelinux.org/blog/archives/141-quick-hack-to-unite-vim-and-objdump.html
 		"
@@ -187,6 +194,7 @@ if has("eval") && has("autocmd")
 	autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setf nginx | endif 
 	autocmd BufRead,BufNewFile *.sieve setf sieve
 	autocmd BufWritePre *.c,Makefile,*.sh,*.h,*.hpp,*.html,*.xhtml,*.textile call ChopLinesInBuf ()
+	autocmd BufNewFile *.cmake,CMakeLists.txt call MakeNewCmake ()
 	autocmd BufNewFile *.sh call MakeNewCodeSHell ()
 	autocmd BufNewFile *.c call MakeNewCodeC ()
 	autocmd BufNewFile *.h call MakeNewCodeCH ("c", "h")
