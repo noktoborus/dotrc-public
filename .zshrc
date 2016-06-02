@@ -317,6 +317,11 @@ SSH_ENV="$HOME/.ssh/environment"
 
 # from http://mah.everybody.org/docs/ssh
 function start_agent {
+	if /usr/bin/ssh-add -L >/dev/null 2>&1;
+	then
+		echo "Agent already started"
+		return 1
+	fi
     echo "Initialising new SSH agent..."
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     echo succeeded
