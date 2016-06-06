@@ -46,6 +46,18 @@ if has("eval") && has("autocmd")
 		put =''
 	endfun
 
+	function! MakeNewCodeCPP()
+		0 put ='/* vim: ft=cpp ff=unix fenc=utf-8'
+		put =' */'
+		put =''
+		put ='#include <iostream>'
+		put =''
+		put ='int main(int argc, char *argv[])'
+		put ='{'
+		put ='	return 0;'
+		put ='}'
+	endfun
+
 	function! MakeNewCodeC()
 		let fname = bufname ('%')
 		let fnameh = substitute(bufname('%'), "\.c$", ".h", "")
@@ -198,6 +210,7 @@ if has("eval") && has("autocmd")
 	autocmd BufNewFile *.cmake,CMakeLists.txt call MakeNewCmake ()
 	autocmd BufNewFile *.sh call MakeNewCodeSHell ()
 	autocmd BufNewFile *.c call MakeNewCodeC ()
+	autocmd BufNewFile *.cpp,*.cc call MakeNewCodeCPP()
 	autocmd BufNewFile *.h call MakeNewCodeCH ("c", "h")
 	autocmd BufNewFile *.hpp call MakeNewCodeCH ("cpp", "hpp")
 	autocmd BufNewFile *.html,*.xhtml call MakeNewCodeHtml ()
