@@ -1,3 +1,4 @@
+zmodload zsh/terminfo
 autoload -Uz compinit
 compinit
 #autoload -Uz promptinit
@@ -187,8 +188,11 @@ bindkey ""    end-of-line
 bindkey "\e[7~" beginning-of-line
 bindkey "\e[8~" end-of-line
 bindkey "\e[3~" delete-char
-bindkey "\e[A"  history-beginning-search-backward
-bindkey "\e[B"  history-beginning-search-forward
+bindkey '^r' history-incremental-search-backward
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward
+bindkey "$terminfo[kcud1]" history-beginning-search-forward
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
 setopt PROMPT_SUBST
 
 PROMPT="$(print '%{\e[0m%}%{\e[;34m%}[%{\e[1;34m%}%*%{\e[0m%}%{\e[;34m%}]%{\e[0m%}%{\e[;31m%}#%l(%L)%{\e[;36m%}%#%{\e[0m%}') "
