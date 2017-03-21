@@ -1,4 +1,3 @@
-zmodload zsh/terminfo
 autoload -Uz compinit
 compinit
 #autoload -Uz promptinit
@@ -188,11 +187,8 @@ bindkey ""    end-of-line
 bindkey "\e[7~" beginning-of-line
 bindkey "\e[8~" end-of-line
 bindkey "\e[3~" delete-char
-bindkey '^r' history-incremental-search-backward
-bindkey "$terminfo[kcuu1]" history-beginning-search-backward
-bindkey "$terminfo[kcud1]" history-beginning-search-forward
-#bindkey "$terminfo[kcuu1]" history-substring-search-up
-#bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey "\e[A"  history-beginning-search-backward
+bindkey "\e[B"  history-beginning-search-forward
 setopt PROMPT_SUBST
 
 PROMPT="$(print '%{\e[0m%}%{\e[;34m%}[%{\e[1;34m%}%*%{\e[0m%}%{\e[;34m%}]%{\e[0m%}%{\e[;31m%}#%l(%L)%{\e[;36m%}%#%{\e[0m%}') "
@@ -301,6 +297,13 @@ fi
 printf "\e[;32m\t\t\t"
  LC_ALL=C date
 printf	"\e[0m"
+
+if [ -x /usr/bin/acpitool ];
+then
+	printf '\e[;33m'
+	LC_ALL=C /usr/bin/acpitool
+	printf '\e[;0m\n'
+fi
 
 if [ -x /usr/bin/sensors ];
 then
