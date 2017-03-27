@@ -16,8 +16,6 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.history
 export CVS_RSH=ssh
-export JEKYLL_POSTS="$HOME/_private/mnt/sirin/noktoborus/noktoborus.github.com/_posts"
-export PKG_CONFIG_PATH="/usr/lib64/postgresql-9.4/lib64/pkgconfig:$PKG_CONFIG_PATH"
 
 
 if [ -d "/usr/lib/colorgcc/bin" ];
