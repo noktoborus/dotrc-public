@@ -40,8 +40,8 @@ if has("eval") && has("autocmd")
 	function! MakeNewCodePY()
 		let fname = bufname ('%')
 		0 put ='#!/usr/bin/env python'
-		put ='# -*- encoding: utf-8 -*'
-		put ='# vim: ft=python ff=unix fenc=utf-8'
+		put ='# -*- coding: utf-8 -*'
+		put ='# vim: ft=python ff=unix fenc=utf-8 cc=120'
 		put ='# file: ' . fname
 		put =''
 	endfun
