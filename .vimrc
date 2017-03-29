@@ -39,10 +39,17 @@ if has("eval") && has("autocmd")
 
 	function! MakeNewCodePY()
 		let fname = bufname ('%')
+		let module = substitute(bufname('%'), "\.py$", "", "")
 		0 put ='#!/usr/bin/env python'
 		put ='# -*- coding: utf-8 -*'
 		put ='# vim: ft=python ff=unix fenc=utf-8 cc=120'
 		put ='# file: ' . fname
+		put ='\"\"\"'
+		put ='.. module: ' . module
+		put =''
+		put =''
+		put =''
+		put ='\"\"\"'
 		put =''
 	endfun
 
