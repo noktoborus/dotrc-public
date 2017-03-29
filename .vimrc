@@ -42,7 +42,7 @@ if has("eval") && has("autocmd")
 		let module = substitute(bufname('%'), "\.py$", "", "")
 		0 put ='#!/usr/bin/env python'
 		put ='# -*- coding: utf-8 -*'
-		put ='# vim: ft=python ff=unix fenc=utf-8 cc=120'
+		put ='# vim: ft=python ff=unix fenc=utf-8 cc=120 et ts=4'
 		put ='# file: ' . fname
 		put ='\"\"\"'
 		put ='.. module: ' . module
