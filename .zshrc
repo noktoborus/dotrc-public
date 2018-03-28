@@ -244,11 +244,11 @@ function start_agent {
 }
 
 # Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
+if [ -z "${SSH_AGENT_PID}" -a -f "${SSH_ENV}" ]; then
 	. "${SSH_ENV}" > /dev/null
 fi
 
-if [ "${SSH_AGENT_PID}" ]; then
+if [ -n "${SSH_AGENT_PID}" ]; then
 	cat "/proc/${SSH_AGENT_PID}/cmdline" | grep -a '^ssh-agent' >/dev/null || {
 		start_agent
 	}
