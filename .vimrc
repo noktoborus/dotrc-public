@@ -175,6 +175,24 @@ if has("eval") && has("autocmd")
 		set tabstop=4 "ts
 	endfunction
 
+	function! MakeNewClishXML()
+		let fname = bufname ('%')
+		let vname = substitute (fname, 'qos_\(.*\).xml', '\1', '')
+		0 put ='<?xml version=\"1.0\" encoding=\"UTF-8\"?>'
+		put ='<CLISH_MODULE xmlns=\"http://clish.sourceforge.net/XMLSchema\"'
+		put ='              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"'
+		put ='              xsi:schemaLocation=\"http://clish.sourceforge.net/XMLSchema'
+        put ='                     http://clish.sourceforge.net/XMLSchema/clish.xsd\">'
+		put ='    <!-- ' . vname . ' -->'
+		put ='    <VIEW name=\"qos_module_' . vname . '\">'
+		put ='    </VIEW>'
+		put ='</CLISH_MODULE>'
+
+		set expandtab
+		set tabstop=4
+		set list
+	endfunction
+
 	function! ReadBinaryWithAny()
 		" URL: http://vir.homelinux.org/blog/archives/141-quick-hack-to-unite-vim-and-objdump.html
 		"
@@ -210,6 +228,7 @@ if has("eval") && has("autocmd")
 		call setpos (".", curpos)
 	endfun
 	
+	autocmd BufNewFile qos_*.xml call MakeNewClishXML ()
 	autocmd BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf setf lighttpd 
 	autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setf nginx | endif 
 	autocmd BufRead,BufNewFile *.sieve setf sieve

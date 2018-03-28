@@ -98,6 +98,8 @@ bindkey "\e[8~" end-of-line
 bindkey "\e[3~" delete-char
 bindkey "\e[A"  history-beginning-search-backward
 bindkey "\e[B"  history-beginning-search-forward
+bindkey "${key[Up]}"  history-beginning-search-backward
+bindkey "${key[Down]}"  history-beginning-search-forward
 setopt PROMPT_SUBST
 
 PROMPT="$(print '%{\e[0m%}%{\e[;34m%}[%{\e[1;34m%}%*%{\e[0m%}%{\e[;34m%}]%{\e[0m%}%{\e[;31m%}#%l(%L)%{\e[;36m%}%#%{\e[0m%}') "
