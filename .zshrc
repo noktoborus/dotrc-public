@@ -243,17 +243,18 @@ function start_agent {
     #/usr/bin/ssh-add;
 }
 
-# Source SSH settings, if applicable
-if [ -z "${SSH_AGENT_PID}" -a -f "${SSH_ENV}" ]; then
-	. "${SSH_ENV}" > /dev/null
-fi
-
-if [ -n "${SSH_AGENT_PID}" ]; then
-	cat "/proc/${SSH_AGENT_PID}/cmdline" | grep -a '^ssh-agent' >/dev/null || {
+# Проверка запущенного агента
+ssh-add -l >/dev/null 2>&1
+if [ $? -eq 2 ] ; then
+	# Подгрузка переменных, если конфигурация присутствует
+	if [ -e "${SSH_ENV}" ]; then
+		. "${SSH_ENV}"
+	fi
+	# Проверка возможности подключиться по подгруженным переменным
+	ssh-add -L >/dev/null 2>&1
+	if [ $? -eq 2 ] ; then
 		start_agent
-	}
-else
-	start_agent
+	fi
 fi
 
 # show time info (if user && sys time greater then 1 seconds)
