@@ -27,7 +27,7 @@ alias cal="LC_ALL=ru_RU.UTF-8 cal"
 alias nohup="nohup $* >/dev/null 2>/dev/null"
 alias g="grep -RHn --color=auto"
 alias vimpager="vimpager -n"
-alias less="less -R"
+alias less="less -RF"
 alias tmux="_z_tmux"
 alias su='su -p'
 

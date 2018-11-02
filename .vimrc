@@ -168,11 +168,11 @@ if has("eval") && has("autocmd")
 	endfunction
 
 	function! MakeNewCmake()
-		0 put ='# vim: ft=cmake:et:ts=4:ff=unix:fenc=utf-8:'
+		0 put ='# vim: ft=cmake:et:ts=2:ff=unix:fenc=utf-8:'
 		put ='cmake_minimum_required(VERSION 3.0.2)'
 		put =''
 		set expandtab "et
-		set tabstop=4 "ts
+		set tabstop=2 "ts
 	endfunction
 
 	function! MakeNewClishXML()
@@ -297,7 +297,8 @@ set ruler
 set nocompatible
 set nocp
 set shiftwidth =4
-set tabstop =4
+set tabstop =2
+set expandtab
 set hlsearch
 set showmatch
 set incsearch
@@ -415,9 +416,9 @@ set guifont =Monospace\ 12
 set guipty
 
 "set ttymouse =xterm2
-set mouse =a
-set mousemodel =popup
-set mousehide
+"set mouse =a
+"set mousemodel =popup
+"set mousehide
 
 set backupdir =~/.tmp/vim,/tmp/
 set directory =~/.tmp/vim,/tmp/

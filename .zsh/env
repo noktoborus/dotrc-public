@@ -5,6 +5,8 @@ if [ -x "/usr/bin/most" ];
 then
    export MANPAGER="most"
    export PAGER="most"
+else
+   export PAGER="less -RF"
 fi
 
 export PATH="$HOME/node_modules/.bin:/sbin:/usr/sbin:$HOME/.local/bin:$HOME/.local/usr/bin/:$HOME/.local/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games:$PATH"
