@@ -18,14 +18,14 @@ fi
 alias ip6="ip -6"
 alias startx="sh -c 'nohup /usr/bin/env xinit 2>/dev/null 1>/dev/null &' && clear && echo -n `date` && logout"
 alias ls='ls -G -F -h --color=yes'
-alias grep='grep --color=yes'
+alias grep='grep --color=yes --binary-files=without-match'
 alias df='df -h'
 alias vim='vim -p '
 alias du='du -hsc'
 alias bc="bc ~/.bcrc"
 alias cal="LC_ALL=ru_RU.UTF-8 cal"
 alias nohup="nohup $* >/dev/null 2>/dev/null"
-alias g="grep -RHn --color=auto"
+alias g="grep -RHn --color=auto --binary-files=without-match"
 alias vimpager="vimpager -n"
 alias less="less -RF"
 alias tmux="_z_tmux"
