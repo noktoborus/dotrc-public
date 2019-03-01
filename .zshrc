@@ -90,16 +90,17 @@ dum ()
 	\du -h --max-depth=1 "$@" | sort -k 1,1hr -k 2,2f;
 }
 
-bindkey -s "" "fg 2>/dev/null >/dev/null\nclear\n"
-bindkey ""    beginning-of-line
-bindkey ""    end-of-line
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+bindkey "^A"    beginning-of-line
+bindkey "^E"    end-of-line
 bindkey "\e[7~" beginning-of-line
 bindkey "\e[8~" end-of-line
 bindkey "\e[3~" delete-char
 bindkey "\e[A"  history-beginning-search-backward
 bindkey "\e[B"  history-beginning-search-forward
-bindkey "${key[Up]}"  history-beginning-search-backward
-bindkey "${key[Down]}"  history-beginning-search-forward
+[ ! -z "${key[Up]}" ] && bindkey "${key[Up]}"  history-beginning-search-backward
+[ ! -z "${key[Down]}" ] && bindkey "${key[Down]}"  history-beginning-search-forward
 setopt PROMPT_SUBST
 
 PROMPT="$(print '%{\e[0m%}%{\e[;34m%}[%{\e[1;34m%}%*%{\e[0m%}%{\e[;34m%}]%{\e[0m%}%{\e[;31m%}#%l(%L)%{\e[;36m%}%#%{\e[0m%}') "
