@@ -101,7 +101,7 @@ if has("eval") && has("autocmd")
 		let nfname = substitute (nfname, '[\.|/]', "_", "g")
 		let ddeee = '_' . nfname . '_' . ddeee . "_" . ext . "_"
 
-		0 put ='/* vim: ft=' . a:type . ' ff=unix fenc=utf-8'
+		0 put ='/* vim: ft=' . a:type . ' ff=unix fenc=utf-8 ts=2 sw=2 et'
 		put =' * file: ' . fname
 		put =' */'
 		put ='#ifndef ' . ddeee
