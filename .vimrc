@@ -68,7 +68,7 @@ if has("eval") && has("autocmd")
 	function! MakeNewCodeC()
 		let fname = bufname ('%')
 		let fnameh = substitute(bufname('%'), "\.c$", ".h", "")
-		0 put ='/* vim: ft=c ff=unix fenc=utf-8'
+		0 put ='/* vim: ft=c ff=unix fenc=utf-8 ts=2 sw=2 et'
 		put =' * file: ' . fname
 		put =' */'
 
