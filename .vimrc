@@ -296,7 +296,7 @@ set showcmd
 set ruler
 set nocompatible
 set nocp
-set shiftwidth =4
+set shiftwidth =2
 set tabstop =2
 set expandtab
 set hlsearch
