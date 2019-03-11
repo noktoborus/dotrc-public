@@ -15,6 +15,7 @@ fi
 [ -r "${HOME}/.zsh/zsh_local" ] && source "${HOME}/.zsh/zsh_local"
 
 #alias startx="sh -c 'sh -c \"exec /usr/bin/env xinit 2>/dev/null 1>/dev/null\" &' && clear && echo -n `date` && logout"
+alias gdb='gdb -q'
 alias ip6="ip -6"
 alias startx="sh -c 'nohup /usr/bin/env xinit 2>/dev/null 1>/dev/null &' && clear && echo -n `date` && logout"
 alias ls='ls -G -F -h --color=yes'
