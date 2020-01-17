@@ -33,6 +33,8 @@ elseif $DISPLAY != '' && executable('xclip')
   let s:PLATFORM = 'x'
 elseif executable('lemonade')
   let s:PLATFORM = 'lemonade'
+elseif executable('termux-setup-storage')
+  let s:PLATFORM = 'termux'
 else
   let s:PLATFORM = 'unknown'
 endif
@@ -182,6 +184,9 @@ function! s:read_clipboard_cygwin()
   return content[1:]
 endfunction
 
+function! s:read_clipboard_termux()
+  return system('termux-clipboard-get')
+endfunction
 
 function! s:read_clipboard_x()
   return system('xclip -o')
@@ -266,6 +271,10 @@ function! s:write_clipboard_cygwin(text)
   return
 endfunction
 
+function! s:write_clipboard_termux(text)
+  call system('termux-clipboard-set', a:text)
+  return
+endfunction
 
 function! s:write_clipboard_x(text)
   call system('xclip', a:text)
