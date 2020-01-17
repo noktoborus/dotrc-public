@@ -288,6 +288,9 @@ if has("eval") && has("autocmd")
 	set statusline =%<%1*(%M%R)%f(%F)%=\ [%{GetEncInfo()}]\ [%n]%1*%-19(%2*\ %02c(%p%%)\ %1*%)%O'%3*%02b%1*'
 endif
 
+set foldmethod =syntax
+set foldlevel =0
+
 set listchars=tab:>\ ,trail:.,extends:>
 set list
 set modeline
@@ -298,9 +301,6 @@ set showcmd
 set ruler
 set nocompatible
 set nocp
-set shiftwidth =2
-set tabstop =2
-set expandtab
 set hlsearch
 set showmatch
 set incsearch
@@ -310,14 +310,22 @@ set nu
 set nobackup
 set hidden
 set ch =1
-set smartindent
 set sessionoptions =curdir,buffers,tabpages
-set cindent
 set title
 set titlestring =%t%(\ %m%)%(\ %r%)%(\ %h%)%(\ %w%)%(\ (%{expand(\"%:p:~:h\")})%)\ -\ VIM
 set confirm
 set shortmess =fimnrxoOtTI
 set pastetoggle =<F12>
+
+" Indent
+set shiftwidth =2
+set tabstop =2
+set softtabstop =2
+set smarttab
+set expandtab
+
+set smartindent
+set cindent
 
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
