@@ -370,6 +370,7 @@ vmap	<F1>	<nop>
 
 imap <C-f> <C-x><C-o>
 
+" clipboard
 vmap <C-c> "+yi
 imap <C-v> <Esc>"+gPi
 
