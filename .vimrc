@@ -373,6 +373,8 @@ imap <C-f> <C-x><C-o>
 " clipboard
 vmap <C-c> "+yi
 imap <C-v> <Esc>"+gPi
+vmap y "+y
+nmap p "+gP
 
 "map	<	:<gv<cr>
 "map	>	:>gv<cr>
