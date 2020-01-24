@@ -256,8 +256,6 @@ if has("eval") && has("autocmd")
 			" we're in vimpager / less.sh / man mode
 			set laststatus=0
 			set ruler
-			set foldmethod=manual
-			set foldlevel=99
 			set nolist
 			set noswapfile
 			set colorcolumn&
@@ -287,9 +285,6 @@ if has("eval") && has("autocmd")
 	"set statusline =%<%1*(%M%R)%f(%F)%=\ [Branch:\ %{GitBranch()}]\ [%{GetEncInfo()}]\ [%n]%1*%-19(%2*\ %02c(%p%%)\ %1*%)%O'%3*%02b%1*'
 	set statusline =%<%1*(%M%R)%f(%F)%=\ [%{GetEncInfo()}]\ [%n]%1*%-19(%2*\ %02c(%p%%)\ %1*%)%O'%3*%02b%1*'
 endif
-
-set foldmethod =syntax
-set foldlevel =99
 
 set listchars=tab:>\ ,trail:.,extends:>
 set list
