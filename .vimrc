@@ -289,7 +289,7 @@ if has("eval") && has("autocmd")
 endif
 
 set foldmethod =syntax
-set foldlevel =0
+set foldlevel =99
 
 set listchars=tab:>\ ,trail:.,extends:>
 set list
