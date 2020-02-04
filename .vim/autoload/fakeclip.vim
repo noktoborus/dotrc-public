@@ -199,9 +199,8 @@ endfunction
 
 
 function! s:read_clipboard_unknown()
-  echoerr 'Getting the clipboard content is not supported on this platform:'
-  \       s:PLATFORM
-  return ''
+  echo 'read unknown clipboard from ~/.vimclip'
+  return join(readfile(expand("~/.vimclip"), 'b'))
 endfunction
 
 
@@ -289,8 +288,8 @@ endfunction
 
 
 function! s:write_clipboard_unknown(text)
-  echoerr 'Yanking into the clipboard is not supported on this platform:'
-  \       s:PLATFORM
+  echo 'write unknown clipboard to ~/.vimclip'
+  call writefile([a:text], expand("~/.vimclip"), 'b')
   return
 endfunction
 
