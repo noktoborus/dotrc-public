@@ -286,6 +286,8 @@ if has("eval") && has("autocmd")
 	set statusline =%<%1*(%M%R)%f(%F)%=\ [%{GetEncInfo()}]\ [%n]%1*%-19(%2*\ %02c(%p%%)\ %1*%)%O'%3*%02b%1*'
 endif
 
+set visualbell
+
 set listchars=tab:>\ ,trail:.,extends:>
 set list
 set modeline
