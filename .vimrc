@@ -1,4 +1,39 @@
 if has("eval") && has("autocmd")
+  function! ShowGitBlame()
+    let current = expand('%')
+    let hname = system('sha1sum ' . current. '| cut "-d " -f1')
+    let cline = line('.')
+
+    let fname = "/". join(split(tempname(), "/")[:-2], "/")
+    let fname = fname . "/" . substitute(hname, ' ', '_', 'g')
+    let fname = split(fname, '\n')[0]
+
+    if filereadable(fname)
+      silent execute "tabnew " . fname
+      setlocal noswapfile
+      setlocal nomodifiable
+      execute cline
+    else
+      let content = split(system("git blame " . current), "\n")
+
+      if len(content) == 1
+        echo content
+        return
+      endif
+
+      silent execute "tabnew " . fname
+      setlocal noswapfile
+      setlocal modifiable
+      0 put = content
+      0
+      silent write!
+      setlocal nomodifiable
+      execute cline
+    endif
+  endfunction
+  command! Blame call ShowGitBlame()
+
+
 	function! ShowManPage(cmdpage)
 		let page = a:cmdpage
 		let fname = "/". join (split (tempname (), "/")[:-2], "/")
