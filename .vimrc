@@ -294,6 +294,9 @@ if has("eval") && has("autocmd")
 			set nolist
 			set noswapfile
 			set colorcolumn&
+			if exists('w:overlength_match')
+				call matchdelete(w:overlength_match)
+			endif
 		endif
 	endfun
 	autocmd VimEnter * :call <SID>check_pager_mode()
@@ -365,7 +368,9 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set fileencodings=utf-8,cp1251,koi8-r,iso-8859-15
 if version >= 703
+	let w:overlength_match = matchadd('ErrorMsg', '.\%>80v', 0)
 	set colorcolumn =80
+	hi colorcolumn ctermfg=red
 endif
 
 if has("autocmd")
