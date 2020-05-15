@@ -1,4 +1,6 @@
 if has("eval") && has("autocmd")
+  let g:blame_oppened_list = []
+
   function! ShowGitBlame()
     let current = expand('%')
     let hname = system('sha1sum ' . current. '| cut "-d " -f1')
@@ -10,9 +12,6 @@ if has("eval") && has("autocmd")
 
     if filereadable(fname)
       silent execute "tabnew " . fname
-      setlocal noswapfile
-      setlocal nomodifiable
-      execute cline
     else
       let content = split(system("git blame " . current), "\n")
 
@@ -26,12 +25,33 @@ if has("eval") && has("autocmd")
       setlocal modifiable
       0 put = content
       0
-      silent write!
-      setlocal nomodifiable
-      execute cline
     endif
+
+    silent write!
+    setlocal noswapfile
+    setlocal nomodifiable
+    execute cline
+
+    call add(g:blame_oppened_list, fname)
+
   endfunction
   command! Blame call ShowGitBlame()
+
+
+  function! DeleteGitBlame()
+    let fname = expand("<afile>")
+    let pos = index(g:blame_oppened_list, fname)
+
+    if pos == -1
+      return
+    endif
+
+    call delete(fname)
+
+    call remove(g:blame_oppened_list, pos)
+  endfunction
+
+  autocmd BufUnload * call DeleteGitBlame()
 
 
 	function! ShowManPage(cmdpage)
