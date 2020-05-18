@@ -13,7 +13,7 @@ if has("eval") && has("autocmd")
     if filereadable(fname)
       silent execute "tabnew " . fname
     else
-      let content = split(system("git blame " . current), "\n")
+      let content = split(system("git blame --abbrev=6 " . current), "\n")
 
       if len(content) == 1
         echo content
