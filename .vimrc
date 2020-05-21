@@ -1,6 +1,44 @@
 if has("eval") && has("autocmd")
   let g:blame_oppened_list = []
 
+  function! GitShowByHash(commit_hash)
+    let commit_body = system("git show " . a:commit_hash)
+
+    silent execute "tabnew " . a:commit_hash
+    setlocal noswapfile
+    setlocal modifiable
+    0 put = commit_body
+    setlocal noswapfile
+    setlocal nomodifiable
+    setlocal buftype=nofile
+    execute 0
+    set syntax=git
+  endfunction
+
+  function! GitShowByLine(line_no)
+    let current = expand('%')
+
+    let pos = index(g:blame_oppened_list, current)
+    if pos == -1
+      " not blamed file
+      let cmd = "git blame -L " . a:line_no. "," . a:line_no . " " . current
+      let message = system(cmd)
+      let commit_hash = split(message, ' ')[0]
+
+      if commit_hash == 'fatal:'
+        echo message
+        return
+      endif
+    else
+      " get hash from blame
+      let line_text = getline(a:line_no)
+      let commit_hash = split(line_text, ' ')[0]
+    endif
+
+    call GitShowByHash(commit_hash)
+  endfunction
+  command! Show call GitShowByLine(line('.'))
+
   function! ShowGitBlame()
     let current = expand('%')
     let hname = system('sha1sum ' . current. '| cut "-d " -f1')
