@@ -69,6 +69,7 @@ if has("eval") && has("autocmd")
     setlocal noswapfile
     setlocal nomodifiable
     execute cline
+    set syntax=gitblame
 
     call add(g:blame_oppened_list, fname)
 
